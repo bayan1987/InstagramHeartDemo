@@ -4,4 +4,4 @@
 
 ## Blog post
 
-here.
+You can learn how to get this result by reading my [Blog Post here.](https://changelog.pro/create-instagram-like-heart-animation-android/).

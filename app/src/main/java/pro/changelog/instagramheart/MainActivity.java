@@ -23,10 +23,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvGuide;
     private ImageView ivHeart;
     private View bgCircle;
-    private GestureDetector detector;
 
+    // Animation Helpers
     private static final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
     private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
+
+    // Gesture Detector
+    private GestureDetector detector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,21 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    // GestureListener Inner Class
+    public class GestureListener extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            heart();
+            return true;
+        }
     }
     private void heart() {
         tvGuide.setVisibility(View.INVISIBLE);
@@ -103,17 +121,5 @@ public class MainActivity extends AppCompatActivity {
         ivHeart.setVisibility(View.GONE);
         tvGuide.setVisibility(View.VISIBLE);
     }
-    public class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
-        @Override
-        public boolean onDown(MotionEvent e) {
-            return true;
-        }
-
-        @Override
-        public boolean onDoubleTap(MotionEvent e) {
-            heart();
-            return true;
-        }
-    }
 }
